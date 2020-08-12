@@ -17,9 +17,19 @@ public class Publisher {
     private String state;
     private String city;
     private String zipCode;
+
+    @OneToMany
+    private Set<Book>books=new HashSet<>();
     public Publisher() {
     }
 
+    public Set<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
 
     public String getName() {
         return name;
