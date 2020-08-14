@@ -14,7 +14,6 @@ public class Book {
     private String isbn;
 
     @ManyToOne
-    @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
     @ManyToMany
@@ -68,7 +67,7 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id.equals(book.id);
+        return id != null ? id.equals(book.id) : book.id == null;
     }
 
     @Override
